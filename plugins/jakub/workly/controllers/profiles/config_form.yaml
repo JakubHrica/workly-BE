@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Profile
+
+# Model Form Field configuration
+form: $/jakub/workly/models/profile/fields.yaml
+
+# Model Class name
+modelClass: Jakub\Workly\Models\Profile
+
+# Default redirect location
+defaultRedirect: jakub/workly/profiles
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: jakub/workly/profiles/update/:id
+    redirectClose: jakub/workly/profiles
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: jakub/workly/profiles
+    redirectClose: jakub/workly/profiles
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

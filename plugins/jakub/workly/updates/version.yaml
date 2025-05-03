@@ -1,0 +1,6 @@
+v1.0.1:
+- First version of Workly
+- Added Event Model
+- create_events_table.php
+- Added Profile Model
+- create_profiles_table.php

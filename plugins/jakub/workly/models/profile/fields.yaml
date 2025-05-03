@@ -1,0 +1,51 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        type: number
+        disabled: true
+
+    name:
+        label: Name
+        type: text
+        span: auto
+        required: true
+
+    surname:
+        label: Surname
+        type: text
+        span: auto
+        required: true
+
+    email:
+        label: Email
+        type: email
+        span: auto
+        required: true
+
+    token:
+        label: Token
+        type: text
+        span: auto
+        disabled: true
+
+    token_expiration:
+        label: Token Expiration
+        type: datetime
+        span: auto
+        disabled: true
+
+    created_at:
+        label: Created At
+        type: datetime
+        span: auto
+        disabled: true
+
+    updated_at:
+        label: Updated At
+        type: datetime
+        span: auto
+        disabled: true

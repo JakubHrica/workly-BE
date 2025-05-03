@@ -1,0 +1,44 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        type: number
+        searchable: true
+
+    name:
+        label: Name
+        type: text
+        searchable: true
+
+    surname:
+        label: Surname
+        type: text
+        searchable: true
+
+    email:
+        label: Email
+        type: text
+        searchable: true
+
+    token:
+        label: Token
+        type: text
+        searchable: false
+
+    token_expiration:
+        label: Token Expiration
+        type: datetime
+        searchable: false
+
+    created_at:
+        label: Created At
+        type: datetime
+        searchable: false
+
+    updated_at:
+        label: Updated At
+        type: datetime
+        searchable: false
