@@ -69,7 +69,42 @@ class EventController
     public function updateEvent(Request $request)
     {
         try {
-            // Your code here
+            $userId = $this->getUserIdFromToken($request);
+
+            $oldData = $request->input('oldData');
+            $newData = $request->input('newData');
+
+            if (!$oldData || !$newData) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Invalid input data'
+                ], 400);
+            }
+
+            // Find the event by user ID and old data
+            $event = Event::where('user_id', $userId)
+                ->where('start_datetime', $oldData['start_datetime'])
+                ->where('end_datetime', $oldData['end_datetime'])
+                ->where('title', $oldData['title'])
+                ->where('description', $oldData['description'])
+                ->where('type', $oldData['type'])
+                ->first();
+
+            if (!$event) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Event not found or you do not have permission to update it'
+                ], 404);
+            }
+
+            // Update the event with the new data
+            $event->update($newData);
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Event updated successfully',
+                'event' => $event
+            ], 200);
         } catch (\Exception $e) {
             return $this->handleServerError($e);
         }
@@ -78,7 +113,33 @@ class EventController
     public function deleteEvent(Request $request)
     {
         try {
-            // Your code here
+            $userId = $this->getUserIdFromToken($request);
+
+            $data = $request->all();
+
+            // Find the event by user ID and old data
+            $event = Event::where('user_id', $userId)
+                ->where('start_datetime', $data['start_datetime'])
+                ->where('end_datetime', $data['end_datetime'])
+                ->where('title', $data['title'])
+                ->where('description', $data['description'])
+                ->where('type', $data['type'])
+                ->first();
+
+            if (!$event) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Event not found or you do not have permission to delete it'
+                ], 404);
+            }
+
+            // Update the event with the new data
+            $event->delete();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Event deleted successfully'
+            ], 200);
         } catch (\Exception $e) {
             return $this->handleServerError($e);
         }
