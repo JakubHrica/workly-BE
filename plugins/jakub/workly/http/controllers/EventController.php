@@ -12,6 +12,7 @@ class EventController
     public function getEvents(Request $request)
     {
         try {
+            // Duplicate code: Extract user ID from token
             $userId = $this->getUserIdFromToken($request);
 
             // Get filter parameters from the request
@@ -43,6 +44,7 @@ class EventController
 
             return response()->json(['events' => $events], 200);
         } catch (\Exception $e) {
+            // Duplicate code: Handle server error
             return $this->handleServerError($e);
         }
     }
@@ -50,6 +52,7 @@ class EventController
     public function newEvent(Request $request)
     {
         try {
+            // Duplicate code: Extract user ID from token
             $userId = $this->getUserIdFromToken($request);
 
             $data = $request->all();
@@ -62,6 +65,7 @@ class EventController
 
             return response()->json(['message' => 'Event created successfully'], 201);
         } catch (\Exception $e) {
+            // Duplicate code: Handle server error
             return $this->handleServerError($e);
         }
     }
@@ -69,6 +73,7 @@ class EventController
     public function updateEvent(Request $request)
     {
         try {
+            // Duplicate code: Extract user ID from token
             $userId = $this->getUserIdFromToken($request);
 
             $oldData = $request->input('oldData');
@@ -106,6 +111,7 @@ class EventController
                 'event' => $event
             ], 200);
         } catch (\Exception $e) {
+            // Duplicate code: Handle server error
             return $this->handleServerError($e);
         }
     }
@@ -113,6 +119,7 @@ class EventController
     public function deleteEvent(Request $request)
     {
         try {
+            // Duplicate code: Extract user ID from token
             $userId = $this->getUserIdFromToken($request);
 
             $data = $request->all();
@@ -133,7 +140,7 @@ class EventController
                 ], 404);
             }
 
-            // Update the event with the new data
+            // Delete the event
             $event->delete();
 
             return response()->json([
@@ -141,6 +148,7 @@ class EventController
                 'message' => 'Event deleted successfully'
             ], 200);
         } catch (\Exception $e) {
+            // Duplicate code: Handle server error
             return $this->handleServerError($e);
         }
     }
