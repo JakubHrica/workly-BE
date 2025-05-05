@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Event
+
+# Model Form Field configuration
+form: $/jakub/workly/models/event/fields.yaml
+
+# Model Class name
+modelClass: Jakub\Workly\Models\Event
+
+# Default redirect location
+defaultRedirect: jakub/workly/events
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: jakub/workly/events/update/:id
+    redirectClose: jakub/workly/events
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: jakub/workly/events
+    redirectClose: jakub/workly/events
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

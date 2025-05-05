@@ -5,4 +5,46 @@
 columns:
     id:
         label: ID
+        type: number
         searchable: true
+
+    user_id:
+        label: User ID
+        type: text
+        searchable: true
+
+    start_datetime:
+        label: Starts at
+        type: datetime
+        searchable: true
+
+    end_datetime:
+        label: Ends at
+        type: datetime
+        searchable: true
+
+    title:
+        label: Title
+        type: text
+        searchable: true
+
+    description:
+        label: Description
+        type: text
+        searchable: true
+
+    type:
+        label: Type
+        type: text
+        searchable: true
+
+    created_at:
+        label: Created At
+        type: datetime
+        searchable: false
+
+    updated_at:
+        label: Updated At
+        type: datetime
+        searchable: false
+        invisible: true

@@ -6,3 +6,53 @@ fields:
     id:
         label: ID
         disabled: true
+
+    user_id:
+        label: User ID
+        type: text
+        span: auto
+        required: true
+        context: admin
+        style: vertical
+
+    start_datetime:
+        label: Starts at
+        type: datetime
+        span: auto
+        required: true
+
+    end_datetime
+        label: Ends at
+        type: datetime
+        span: auto
+        required: true
+
+    title:
+        label: Title
+        type: text
+        span: auto
+
+    description:
+        label: Description
+        type: textarea
+        span: full
+        style: vertical
+        required: true
+
+    type:
+        label: Type
+        type: text
+        span: auto
+        required: true
+
+    created_at:
+        label: Created At
+        type: datetime
+        span: auto
+        required: false
+
+    updated_at:
+        label: Updated At
+        type: datetime
+        span: auto
+        required: false

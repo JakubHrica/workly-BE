@@ -79,7 +79,7 @@ class Plugin extends PluginBase
                 'url' => Backend::url('jakub/workly/mycontroller'),
                 'icon' => 'icon-leaf',
                 'permissions' => ['jakub.workly.*'],
-                'order' => 500,
+                'order' => 1001,
             ],
         ];
     }

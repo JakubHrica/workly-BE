@@ -20,4 +20,12 @@ class Event extends Model
      * @var array rules for validation
      */
     public $rules = [];
+
+    protected $fillable = [
+        'start_datetime',
+        'end_datetime',
+        'title',
+        'description',
+        'type'
+    ];
 }
