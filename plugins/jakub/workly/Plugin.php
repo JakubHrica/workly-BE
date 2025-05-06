@@ -17,70 +17,9 @@ class Plugin extends PluginBase
     {
         return [
             'name' => 'Workly',
-            'description' => 'No description provided yet...',
+            'description' => 'Plugin for Workly API',
             'author' => 'Jakub',
             'icon' => 'icon-leaf'
-        ];
-    }
-
-    /**
-     * register method, called when the plugin is first registered.
-     */
-    public function register()
-    {
-        //
-    }
-
-    /**
-     * boot method, called right before the request route.
-     */
-    public function boot()
-    {
-        //
-    }
-
-    /**
-     * registerComponents used by the frontend.
-     */
-    public function registerComponents()
-    {
-        return []; // Remove this line to activate
-
-        return [
-            'Jakub\Workly\Components\MyComponent' => 'myComponent',
-        ];
-    }
-
-    /**
-     * registerPermissions used by the backend.
-     */
-    public function registerPermissions()
-    {
-        return []; // Remove this line to activate
-
-        return [
-            'jakub.workly.some_permission' => [
-                'tab' => 'Workly',
-                'label' => 'Some permission'
-            ],
-        ];
-    }
-
-    /**
-     * registerNavigation used by the backend.
-     */
-    public function registerNavigation()
-    {
-        return []; // Remove this line to activate
-
-        return [
-            'workly' => [
-                'label' => 'Workly',
-                'url' => Backend::url('jakub/workly/mycontroller'),
-                'icon' => 'icon-leaf',
-                'permissions' => ['jakub.workly.*'],
-                'order' => 1001,
-            ],
         ];
     }
 }

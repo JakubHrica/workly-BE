@@ -19,7 +19,15 @@ class Event extends Model
     /**
      * @var array rules for validation
      */
-    public $rules = [];
+    public $rules = [
+        'start_datetime' => 'date',
+        'end_datetime' => 'date|after:start_datetime',
+        'from_datetime' => 'date',
+        'to_datetime' => 'date|after:from_datetime',
+        'title' => 'required|string|max:255',
+        'description' => 'nullable|string|max:1000',
+        'type' => 'required|string'
+    ];
 
     protected $fillable = [
         'start_datetime',

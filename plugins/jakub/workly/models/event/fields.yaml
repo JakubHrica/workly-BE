@@ -21,7 +21,7 @@ fields:
         span: auto
         required: true
 
-    end_datetime
+    end_datetime:
         label: Ends at
         type: datetime
         span: auto

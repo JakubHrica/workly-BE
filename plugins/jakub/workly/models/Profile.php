@@ -19,7 +19,13 @@ class Profile extends Model
     /**
      * @var array rules for validation
      */
-    public $rules = [];
+    public $rules = [
+        'name' => 'required|string|max:255',
+        'surname' => 'required'|'string|max:255',
+        'email' => 'required|email',
+        'password' => 'required|min:6',
+        'token' => 'required',
+    ];
 
     protected $fillable = [
         'name',

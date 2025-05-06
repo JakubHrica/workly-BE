@@ -14,11 +14,14 @@ class ProfileController
     public function register(Request $request)
     {
         try {
-            $data = $request->all(); // Get all input data from the request
+            $data = $request('name', 'surname', 'email', 'password'); // Get all input data from the request
 
             // Check if a user with the same email already exists
             if (Profile::where('email', $data['email'])->exists()) {
-                return Response::json(['error' => 'User already exists'], 409);
+                return Response::json([
+                    'status' => 'error',
+                    'message' => 'User already exists',
+                    ], 409);
             }
 
             // Hash the password before saving it
@@ -84,7 +87,10 @@ class ProfileController
         try {
             $user = $this->authenticate(); // Authenticate the user
             if (!$user) {
-                return response()->json(['error' => 'Unauthorized'], 401); // Return unauthorized if no user
+                return response()->json([
+                    'status' => 'error',
+                    'error' => 'Unauthorized'
+                ], 401); // Return unauthorized if no user
             }
 
             // Invalidate the user's token
@@ -93,7 +99,10 @@ class ProfileController
             $user->save();
 
             // Return success response
-            return response()->json(['message' => 'Logged out successfully']);
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Logged out successfully'
+            ]);
         } catch (\Exception $e) {
             // Handle server errors
             return response()->json([
@@ -109,7 +118,10 @@ class ProfileController
         $user = $this->authenticate($request); // Authenticate the user
 
         if (!$user) {
-            return Response::json(['error' => 'Unauthorized'], 401); // Return unauthorized if no user
+            return Response::json([
+                'status' => 'error',
+                'error' => 'Unauthorized'
+            ], 401); // Return unauthorized if no user
         }
 
         // Return the user's profile data
