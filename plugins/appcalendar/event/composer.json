@@ -1,0 +1,8 @@
+{
+    "name": "appcalendar/event-plugin",
+    "type": "october-plugin",
+    "description": "Plugin for managing events in the calendar",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
