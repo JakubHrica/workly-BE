@@ -1,6 +1,7 @@
 <?php namespace AppUser\Profile;
 
 use System\Classes\PluginBase;
+use Backend;
 
 /**
  * Plugin Information File
@@ -19,6 +20,22 @@ class Plugin extends PluginBase
             'description' => 'Plugin for managing workly profiles',
             'author' => 'AppUser',
             'icon' => 'icon-profile'
+        ];
+    }
+
+    /**
+     * registerNavigation used by the backend.
+     */
+    public function registerNavigation()
+    {
+        return [
+            'user' => [
+                'label' => 'User',
+                'url' => Backend::url('appuser/profile/user'),
+                'icon' => 'icon-user-circle',
+                'permissions' => ['appuser.user.*'],
+                'order' => 1001,
+            ],
         ];
     }
 }

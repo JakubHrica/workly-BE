@@ -1,6 +1,7 @@
 <?php namespace AppCalendar\Event;
 
 use System\Classes\PluginBase;
+use Backend;
 
 /**
  * Plugin Information File
@@ -19,6 +20,22 @@ class Plugin extends PluginBase
             'description' => 'Plugin for managing events in the calendar',
             'author' => 'AppCalendar',
             'icon' => 'icon-calendar'
+        ];
+    }
+
+    /**
+     * registerNavigation used by the backend.
+     */
+    public function registerNavigation()
+    {
+        return [
+            'user' => [
+                'label' => 'Event',
+                'url' => Backend::url('appcalendar/event/event'),
+                'icon' => 'icon-calendar-3',
+                'permissions' => ['appuser.user.*'],
+                'order' => 1002,
+            ],
         ];
     }
 }

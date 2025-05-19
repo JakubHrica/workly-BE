@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Event
+
+# Model Form Field configuration
+form: $/appcalendar/event/models/event/fields.yaml
+
+# Model Class name
+modelClass: AppCalendar\Event\Models\Event
+
+# Default redirect location
+defaultRedirect: appcalendar/event/event
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: appcalendar/event/event/update/:id
+    redirectClose: appcalendar/event/event
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: appcalendar/event/event
+    redirectClose: appcalendar/event/event
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title
