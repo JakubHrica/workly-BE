@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: User
+
+# Model Form Field configuration
+form: $/appuser/profile/models/user/fields.yaml
+
+# Model Class name
+modelClass: AppUser\Profile\Models\User
+
+# Default redirect location
+defaultRedirect: appuser/profile/users
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: appuser/profile/users/update/:id
+    redirectClose: appuser/profile/users
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: appuser/profile/users
+    redirectClose: appuser/profile/users
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

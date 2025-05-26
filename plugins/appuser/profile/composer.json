@@ -1,0 +1,8 @@
+{
+    "name": "appuser/profile-plugin",
+    "type": "october-plugin",
+    "description": "Plugin for managing workly profiles",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}

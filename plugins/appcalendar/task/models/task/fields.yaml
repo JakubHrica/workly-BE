@@ -1,0 +1,50 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    user_id:
+        label: User ID
+        type: text
+        searchable: true
+        required: true
+
+    title:
+        label: Title
+        type: text
+        searchable: true
+        required: true
+
+    description:
+        label: Description
+        type: text
+        searchable: true
+
+    tags:
+        label: Tagy
+        type: dropdown
+        options:
+            1: Urgent & Important
+            2: Urgent & Not Important
+            3: Not Urgent & Important
+            4: Not Urgent & Not Important
+
+    priority:
+        label: Priority
+        type: text
+        searchable: true
+        required: true
+
+    start_datetime:
+        label: Start Date & Time
+        type: datepicker
+        align: right
+        searchable: true
+        required: true
+
+    end_datetime:
+        label: End Date & Time
+        type: datepicker
+        align: right
+        searchable: true
+        required: true

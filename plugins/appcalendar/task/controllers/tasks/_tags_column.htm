@@ -1,0 +1,7 @@
+{% if value is iterable %}
+    {% for tag in value %}
+        <span class="label label-primary" style="margin-right: 5px;">{{ tag }}</span>
+    {% endfor %}
+{% else %}
+    {{ value }}
+{% endif %}

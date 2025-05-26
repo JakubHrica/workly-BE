@@ -1,0 +1,49 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    user_id:
+        label: User ID
+        type: text
+        searchable: true
+
+    title:
+        label: Title
+        type: text
+        searchable: true
+
+    description:
+        label: Description
+        type: text
+        searchable: true
+
+    people:
+        label: People
+        type: text
+        searchable: true
+
+    start_datetime:
+        label: Start Date & Time
+        type: datetime
+        align: right
+        searchable: true
+
+    end_datetime:
+        label: End Date & Time
+        type: datetime
+        align: right
+        searchable: true
+
+    created_at:
+        label: Created At
+        type: datetime
+        align: right
+        searchable: true
+
+    updated_at:
+        label: Updated At
+        type: datetime
+        align: right
+        searchable: true
+        invisible: true

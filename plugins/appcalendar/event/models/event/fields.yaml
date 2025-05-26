@@ -1,0 +1,54 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    user_id:
+        label: User ID
+        type: text
+        required: true
+
+    title:
+        label: Title
+        type: text
+        required: true
+
+    description:
+        label: Description
+        type: textarea
+        required: true
+
+    people:
+        label: People
+        type: text
+        required: true
+
+    start_datetime:
+        label: Start Date & Time
+        type: datepicker
+        required: true
+        firstDay: 1
+
+    end_datetime:
+        label: End Date & Time
+        type: datepicker
+        required: true
+        firstDay: 1
+
+    created_at:
+        label: Created At
+        type: datepicker
+        required: true
+        context: [preview, update]
+        disabled: true
+        mode: datetime
+        firstDay: 1
+
+    updated_at:
+        label: Updated At
+        type: datepicker
+        required: true
+        context: [preview, update]
+        disabled: true
+        mode: datetime
+        firstDay: 1

@@ -1,0 +1,43 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Name
+        type: text
+        required: true
+
+    surname:
+        label: Surname
+        type: text
+        required: true
+
+    email:
+        label: Email
+        type: text
+        required: true
+
+    password:
+        label: Password
+        type: text
+        required: true
+        invisible: true
+
+    created_at:
+        label: Created At
+        type: datepicker
+        required: true
+        context: [preview, update]
+        disabled: true
+        mode: datetime
+        firstDay: 1
+
+    updated_at:
+        label: Updated At
+        type: datepicker
+        required: true
+        context: [preview, update]
+        disabled: true
+        mode: datetime
+        firstDay: 1

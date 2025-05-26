@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Task
+
+# Model Form Field configuration
+form: $/appcalendar/task/models/task/fields.yaml
+
+# Model Class name
+modelClass: AppCalendar\Task\Models\Task
+
+# Default redirect location
+defaultRedirect: appcalendar/task/tasks
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: appcalendar/task/tasks/update/:id
+    redirectClose: appcalendar/task/tasks
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: appcalendar/task/tasks
+    redirectClose: appcalendar/task/tasks
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title
