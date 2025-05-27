@@ -19,7 +19,7 @@ class User extends Model
         'name' => 'required|string|max:255',
         'surname' => 'required|string|max:255',
         'email' => 'required|email|unique:appuser_profile_users,email',
-        'password' => 'required|string|min:6'
+        'password' => 'string|min:6' // Mal som to required, ale nefungovalo mi to pri logine
     ];
 
     protected $fillable = [

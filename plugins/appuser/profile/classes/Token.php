@@ -2,13 +2,13 @@
 
 use AppUser\Profile\Models\User;
 use Firebase\JWT\JWT;
-use Carbon\Carbon;
+use Exception;
 
 class Token
 {
     protected static $key;
 
-    // Initialize the secret key from .env
+    // Initialize the key from .env
     public static function init()
     {
         if (!self::$key) {
@@ -20,6 +20,12 @@ class Token
     {
         self::init();
 
+        // Ensure the JWT secret key is set
+        if (!self::$key) {
+            throw new Exception('JWT secret key not set in environment.');
+        }
+
+        // Create the payload for the JWT token
         $payload = [
             'sub' => $user->id, // User ID
             'exp' => time() + 60 * 60 * 24 // Token expiration time (24 hours)

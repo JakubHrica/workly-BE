@@ -24,34 +24,34 @@ class ProfileController extends Controller
         // Generate a JWT token for the user and get its expiration
         Token::generateToken($user);
 
+        // Return the generated token
         return[
             'token' => $user->token,
         ];
     }
 
     public function login(Request $request)
-    {
-        // Extract email and password from the request
-        $data = $request->post();
-        
-        // Find the user by email
-        $user = User::where('email', $data['email'])->first();
+    {   
+        // Retrieve all posted data from the request
+        $email = $request->input('email');
+        $password = $request->input('password');
 
-        // Check if the user exists and the password is correct
-        if (!$user || Hash::check($data['password'], $user->password)) {
-        
-        throw new Exception('Invalid email or password', 401);
+        // Find the user by their email address
+        $user = User::where('email', $email)->first();
+
+        if (!$user) {
+            throw new Exception('User not found', 404);
+        }
+
+        // Check if the user exists and the provided password matches the stored hashed password
+        if (!Hash::check($password, $user->password)) {
+            throw new Exception('Wrong password', 401);
         }
 
         // Generate a JWT token for the user and get its expiration
-        $tokenData = Token::generateToken($user);
+        Token::generateToken($user);
 
-        // Update token and expiration
-        $user->token = $tokenData['token'];
-        $user->token_expiration = $tokenData['expires_at'];
-        $user->save();
-
-        // Return a success response with the new token
+        // Return a success response with the generated token
         return[
             'token' => $user->token
         ];
@@ -60,13 +60,13 @@ class ProfileController extends Controller
     public function logout(Request $request)
     {
         // Retrieve the authenticated user from the request
-        $user = $request->user;
+        $authUser = $request->user;
 
         // Invalidate the user's token by setting it to null
-        $user->token = null;
+        $authUser->token = null;
 
         // Save the updated user record to the database
-        $user->save();
+        $authUser->save();
 
         // Return a success response indicating the user has been logged out
         return null;

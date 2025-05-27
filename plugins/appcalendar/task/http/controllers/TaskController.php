@@ -15,7 +15,10 @@ class TaskController extends Controller
         // Extract only the necessary fields from the request
         $data = $request->post();
 
-        throw new Exception( 'Missing task data', 400);
+        // Validate that the required fields are present
+        if (empty($data)) {
+            throw new Exception('Missing task data', 400);
+        }
 
         // Create a new Event
         $task = new Task();
@@ -37,14 +40,18 @@ class TaskController extends Controller
         // Use the event ID from the route parameter and get all input data
         $data = $request->post();
 
-        throw new Exception('Missing task data', 400);
+        if (empty($data)) {
+            throw new Exception('Missing task data', 400);
+        }
 
         // Find the event that belongs to the authenticated user and matches the provided ID
         $task = Task::where('user_id', $authUser->id)
         ->where('id', $taskId)
         ->first();
 
-        throw new Exception('Task not found', 404);
+        if (!$task) {
+            throw new Exception('Task not found', 404);
+        }
 
         // Update the event with the new data
         $task->update($data);
@@ -60,17 +67,23 @@ class TaskController extends Controller
         // Retrieve the authenticated user
         $authUser = $request->user;
 
-        throw new Exception('Missging task ID', 400);
+        // Use the event ID from the route parameter
+        if (empty($taskId)) {
+            throw new Exception('Missging task ID', 400);
+        }
 
         // Find the event that belongs to the authenticated user and matches the provided ID
-        $event = Task::where('user_id', $authUser->id)
+        $task = Task::where('user_id', $authUser->id)
         ->where('id', $taskId)
         ->first();
 
-        throw new Exception('Task not found', 404);
+        // If the event is not found, throw an exception
+        if (!$task) {
+            throw new Exception('Task not found', 404);
+        }
 
         // Delete the event
-        $event->delete();
+        $task->delete();
 
         // Return a success response indicating the event was deleted
         return null;

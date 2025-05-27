@@ -3,6 +3,7 @@
 use Schema;
 use October\Rain\Database\Schema\Blueprint;
 use October\Rain\Database\Updates\Migration;
+use AppUser\Profile\Models\User;
 
 /**
  * CreateTasksTable Migration
@@ -19,7 +20,7 @@ return new class extends Migration
         Schema::create('appcalendar_task_tasks', function(Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('user_id');
+            $table->foreignIdFor(User::class, 'user_id');
             $table->string('title');
             $table->text('description')->nullable();
             $table->text('tags')->nullable();
@@ -33,11 +34,6 @@ return new class extends Migration
             $table->dateTime('end_datetime');
 
             $table->timestamps();
-
-            $table->foreign('user_id')
-                  ->references('id')
-                  ->on('appuser_profile_users')
-                  ->onDelete('cascade');
         });
     }
 

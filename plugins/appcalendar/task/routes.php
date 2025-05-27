@@ -8,6 +8,6 @@ Route::group([
     'middleware' => ProfileMiddleware::class
 ], function () {
     Route::post('/new_task', [TaskController::class, 'newTask']);
-        Route::post('/update_task/{taskId}', [TaskController::class, 'updateTask']);
-        Route::delete('/delete_task/{taskId}', [TaskController::class, 'deleteTask']);
+    Route::post('/update_task/{taskId}', [TaskController::class, 'updateTask']);
+    Route::delete('/delete_task/{taskId}', [TaskController::class, 'deleteTask']);
 });
