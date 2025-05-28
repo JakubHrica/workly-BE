@@ -43,7 +43,7 @@ class ProfileController extends Controller
             throw new Exception('User not found', 404);
         }
 
-        // Check if the user exists and the provided password matches the stored hashed password
+        // Check the provided password matches the stored hashed password
         if (!Hash::check($password, $user->password)) {
             throw new Exception('Wrong password', 401);
         }
